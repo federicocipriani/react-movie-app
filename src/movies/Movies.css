@@ -1,0 +1,13 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.card-poster {
+    margin: 0 auto;
+}
+
+.movie-poster {
+    height: 100%;
+    width: auto;
+}
