@@ -5,7 +5,7 @@ function Movies({ movies }) {
     return (
         <div className='card-list'>
             {movies.map((movie) => (
-                <div className='card' key={movie.id}>
+                <className='card' key={movie.id}>
                     <div className='card-poster'>
                         <img
                             className='movie-poster'
