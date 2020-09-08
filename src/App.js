@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import SearchMovies from './SearchMovies';
+import React, { useState, useEffect } from 'react';
+import Header from './header/Header';
+import SearchMovies from './search/SearchMovies';
 import Movies from './movies/Movies';
 
 function App() {
@@ -26,12 +27,28 @@ function App() {
         }
     };
 
+    useEffect(() => {
+        var url =
+            'https://api.themoviedb.org/3/movie/popular?api_key=03439943d1853c45b586f07ebf2a0c16&language=en-US&page=1';
+
+        const fetchData = async () => {
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                console.log(data.results);
+                setMovies(data.results);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='container'>
-            <h1 className='title'>React Movie App</h1>
-            <SearchMovies
-                handleChange={handleChange}
+            <Header
                 query={query}
+                handleChange={handleChange}
                 searchMovies={searchMovies}
             />
             <Movies movies={movies} />

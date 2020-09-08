@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import './SearchMovies.scss';
 
 function SearchMovies({ handleChange, searchMovies, query }) {
     return (
-        <div>
+        <Fragment>
             <form className='form' onSubmit={searchMovies}>
                 <label className='label' htmlFor='query'>
                     Movie Name
@@ -19,7 +20,7 @@ function SearchMovies({ handleChange, searchMovies, query }) {
                     Search
                 </button>
             </form>
-        </div>
+        </Fragment>
     );
 }
 
