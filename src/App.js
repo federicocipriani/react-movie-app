@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './header/Header';
 import SearchMovies from './search/SearchMovies';
 import Movies from './movies/Movies';
+import Title from './title/Title';
 
 function App() {
     const [query, setQuery] = useState('');
@@ -12,8 +13,9 @@ function App() {
         setQuery(e.target.value);
     };
 
-    const searchMovies = async (e) => {
-        e.preventDefault();
+    // const searchMovies = async (e) => {
+    const searchMovies = async () => {
+        // e.preventDefault();
 
         const url = `https://api.themoviedb.org/3/search/movie?api_key=03439943d1853c45b586f07ebf2a0c16&language=en-US&query=${query}&page=1&include_adult=false`;
 
@@ -28,8 +30,12 @@ function App() {
     };
 
     useEffect(() => {
-        var url =
-            'https://api.themoviedb.org/3/movie/popular?api_key=03439943d1853c45b586f07ebf2a0c16&language=en-US&page=1';
+        if (query === '') {
+            var url =
+                'https://api.themoviedb.org/3/movie/popular?api_key=03439943d1853c45b586f07ebf2a0c16&language=en-US&page=1';
+        } else {
+            var url = `https://api.themoviedb.org/3/search/movie?api_key=03439943d1853c45b586f07ebf2a0c16&language=en-US&query=${query}&page=1&include_adult=false`;
+        }
 
         const fetchData = async () => {
             try {
@@ -42,7 +48,7 @@ function App() {
             }
         };
         fetchData();
-    }, []);
+    }, [query]);
 
     return (
         <div className='container'>
@@ -51,6 +57,7 @@ function App() {
                 handleChange={handleChange}
                 searchMovies={searchMovies}
             />
+            <Title query={query} />
             <Movies movies={movies} />
         </div>
     );

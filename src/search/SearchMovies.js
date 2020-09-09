@@ -4,22 +4,21 @@ import './SearchMovies.scss';
 function SearchMovies({ handleChange, searchMovies, query }) {
     return (
         <Fragment>
-            <form className='form' onSubmit={searchMovies}>
-                <label className='label' htmlFor='query'>
-                    Movie Name
-                </label>
+            <div className='input'>
                 <input
-                    className='input'
+                    className='input-box'
                     type='text'
                     name='query'
                     value={query}
-                    placeholder='Movie name'
+                    // placeholder='Movie name'
                     onChange={handleChange}
+                    autoComplete='off'
+                    required
                 />
-                <button className='button' type='submit'>
-                    Search
-                </button>
-            </form>
+                <div className='search-icon'>
+                    <ion-icon className='icon' name='search-outline'></ion-icon>
+                </div>
+            </div>
         </Fragment>
     );
 }
