@@ -1,4 +1,5 @@
 import React from 'react';
+import titleStyles from './Title.module.scss';
 
 function Title({ query }) {
     const styles = {
@@ -7,9 +8,13 @@ function Title({ query }) {
 
     const titles = (query) => {
         if (query === '') {
-            return <h2 style={styles}>Popular movies</h2>;
+            return <h2 className={titleStyles.title}>Popular movies</h2>;
         } else {
-            return <h2 style={styles}>Search results for "{query}"</h2>;
+            return (
+                <h2 className={titleStyles.title}>
+                    Search results for "{query}"
+                </h2>
+            );
         }
     };
 

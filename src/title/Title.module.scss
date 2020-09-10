@@ -1,0 +1,12 @@
+.title {
+    margin-bottom: 1rem;
+}
+
+.title::after {
+    content: '';
+    background-color: red;
+    height: 2rem;
+    width: 3rem;
+    margin-top: 4rem;
+    z-index: 2;
+}

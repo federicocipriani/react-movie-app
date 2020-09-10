@@ -5,50 +5,65 @@
     color: #fff;
     position: relative;
     border-radius: 5px;
-
     width: 12rem;
     height: 2.5rem;
     cursor: text;
     transition: all 0.5s ease-in-out;
-
-    & .input-box {
-        position: absolute;
-        color: #fff;
-        padding-left: 3.5rem;
-        border-radius: 5px;
-        right: 0;
-        bottom: 0;
-        width: 30%;
-        height: 100%;
-        background-color: rgba($secondary-color, 1);
-        border: none;
-        &:hover + .search-icon {
-            transform: translateX(-40%);
-            // left: 2rem;
-        }
-        &:valid + .search-icon {
-            transform: translateX(-40%);
-            // left: 2rem;
-        }
-    }
-
-    & .search-icon {
-        pointer-events: none;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        left: 45%;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s ease-in-out;
-    }
-
+    // overflow: hidden;
     &:hover {
         width: 15rem;
     }
+    &:hover > .input-box {
+        caret-color: #fff;
+        opacity: 1;
+    }
+    &:focus > .input-box {
+        caret-color: #fff;
+    }
+    & .input-box:valid {
+        caret-color: #fff;
+        opacity: 1;
+    }
+}
+
+.input-box {
+    opacity: 0;
+    caret-color: transparent;
+    position: absolute;
+    color: #fff;
+    padding-left: 3.5rem;
+    border-radius: 5px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($secondary-color, 1);
+    border: none;
+    outline: none;
+    // transform: translateX(100%);
+    transition: caret-color 0.15s ease-in, opacity 0.75s linear;
+    &:hover + .search-icon {
+        transform: translateX(-40%);
+        // left: 2rem;
+    }
+    &:valid + .search-icon {
+        transform: translateX(-40%);
+        // left: 2rem;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    left: 45%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-out;
 }
 
 .icon {
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-out;
 }
