@@ -20,7 +20,7 @@ function Title({ query }) {
 
     const title = titles(query);
 
-    return <div>{title}</div>;
+    return <div className={titleStyles.title_container}>{title}</div>;
 }
 
 export default Title;

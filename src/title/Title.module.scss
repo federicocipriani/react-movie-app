@@ -1,12 +1,25 @@
+@import './variables.scss';
+
 .title {
-    margin-bottom: 1rem;
+    position: absolute;
+    white-space: nowrap;
+    bottom: 0;
+    // margin-bottom: 1rem;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        background-color: $tertiary-color;
+        height: 0.75rem;
+        width: 100%;
+        opacity: 0.5;
+        z-index: -1;
+    }
 }
 
-.title::after {
-    content: '';
-    background-color: red;
-    height: 2rem;
-    width: 3rem;
-    margin-top: 4rem;
-    z-index: 2;
+.title_container {
+    display: inline-block;
+    position: relative;
+    // height: 4rem;
+    margin: 2rem 0 1rem;
 }
