@@ -1,10 +1,16 @@
 @import './variables.scss';
 
+.title_container {
+    display: inline-block;
+    position: relative;
+    margin: 2rem 0 1rem;
+}
+
 .title {
     position: absolute;
     white-space: nowrap;
     bottom: 0;
-    // margin-bottom: 1rem;
+
     &::before {
         content: '';
         position: absolute;
@@ -15,11 +21,4 @@
         opacity: 0.5;
         z-index: -1;
     }
-}
-
-.title_container {
-    display: inline-block;
-    position: relative;
-    // height: 4rem;
-    margin: 2rem 0 1rem;
 }

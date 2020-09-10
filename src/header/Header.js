@@ -5,7 +5,7 @@ import headerStyles from './Header.module.scss';
 function Header({ query, handleChange, searchMovies }) {
     return (
         <div className={headerStyles.header}>
-            <h1>React Movie App</h1>
+            <h1>What Should I Watch?</h1>
             <SearchMovies
                 query={query}
                 handleChange={handleChange}

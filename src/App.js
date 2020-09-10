@@ -57,8 +57,10 @@ function App() {
                 handleChange={handleChange}
                 searchMovies={searchMovies}
             />
-            <Title query={query} />
-            <Movies movies={movies} />
+            <main className='page-content'>
+                <Title query={query} />
+                <Movies movies={movies} />
+            </main>
         </div>
     );
 }
