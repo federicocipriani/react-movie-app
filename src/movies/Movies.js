@@ -44,17 +44,6 @@ function Movies({ movies }) {
                             </p>
                             <p className='movie-overview'>{movie.overview}</p>
                         </div>
-                        {/* {expandedId === index && (
-                            <div className='card-content'>
-                                <h2 className='movie-title'>{movie.title}</h2>
-                                <p className='movie-release'>
-                                    {movie.release_date}
-                                </p>
-                                <p className='movie-overview'>
-                                    {movie.overview}
-                                </p>
-                            </div>
-                        )} */}
                     </div>
                 </div>
             ))}
