@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import './SearchMovies.scss';
 
-function SearchMovies({ handleChange, searchMovies, query }) {
+function SearchMovies({ handleChange, query }) {
     return (
         <Fragment>
             <div className='input'>
