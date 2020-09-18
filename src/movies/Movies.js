@@ -4,11 +4,6 @@ import './Movies.scss';
 function Movies({ movies }) {
     const [expandedId, setExpandedId] = useState(-1);
 
-    const handleClick = (index) => {
-        console.log(index);
-        setExpandedId(expandedId === index ? -1 : index);
-    };
-
     const poster = 'movie-poster-container';
     const poster_active = 'movie-poster-container active';
     const poster_pic = 'movie-poster';
@@ -19,6 +14,11 @@ function Movies({ movies }) {
     const button_active = 'button active';
     const content = 'card-content';
     const content_active = 'card-content active';
+
+    const handleClick = (index) => {
+        console.log(index);
+        setExpandedId(expandedId === index ? -1 : index);
+    };
 
     return (
         <div className='card-list'>
@@ -35,21 +35,31 @@ function Movies({ movies }) {
                         }>
                         <img
                             className={
-                                expandedId === index ? poster_pic_active : poster_pic
+                                expandedId === index
+                                    ? poster_pic_active
+                                    : poster_pic
                             }
                             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                             alt=''
                         />
-                        <div className={
+                        <div
+                            className={
                                 expandedId === index ? ratings_active : ratings
                             }>
                             <div className='movie-rating'>
                                 <div className='rating-background'></div>
                                 <div className='movie-vote-wrapper'>
-                                    <span className='movie-vote'>
-                                        {movie.vote_average}
-                                    </span>
-                                    /10
+                                    <div className='movie-vote'>
+                                        <p>
+                                            <span className='movie-vote-rating'>
+                                                {movie.vote_average}
+                                            </span>
+                                            /10
+                                        </p>
+                                    </div>
+                                    <div className='rating-footer'>
+                                        <small>RATING</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>

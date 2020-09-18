@@ -57,15 +57,16 @@
         > .movie-rating-container
         > .movie-rating
         > .movie-vote-wrapper {
-            transition: font-size 0.5s ease-in-out 0s;
+        transition: font-size 0.5s ease-in-out 0s;
         font-size: 2rem;
     }
     &:hover
         ~ .movie-poster-container
         > .movie-rating-container
         > .movie-rating
-        > .movie-vote-wrapper .movie-vote {
-            transition: font-size 0.5s ease-in-out 0s;
+        > .movie-vote-wrapper
+        .movie-vote {
+        transition: font-size 0.5s ease-in-out 0s;
         font-size: 3.5rem;
     }
 
@@ -135,15 +136,31 @@
 
     & .movie-vote-wrapper {
         position: absolute;
-        right: 1rem;
-        bottom: 0.5rem;
-        font-size: 1.75rem;
-        transition: font-size 0.5s ease-in-out 0s;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
 
-    & .movie-vote {
-        font-size: 3rem;
+        height: 100%;
+        width: 100%;
+        // right: 1rem;
+        // bottom: 0.5rem;
+        padding: 0 1rem 0.5rem;
         transition: font-size 0.5s ease-in-out 0s;
+
+        & .rating-footer {
+            position: absolute;
+        }
+
+        & .movie-vote {
+            padding-bottom: 0.5rem;
+            font-size: 1.75rem;
+            transition: font-size 0.5s ease-in-out 0s;
+
+            & .movie-vote-rating {
+                font-size: 3rem;
+            }
+        }
     }
 
     & .rating-background {
@@ -156,4 +173,8 @@
         bottom: -4rem;
         transform: rotate(-10deg);
     }
+}
+
+.rating-header {
+    position: absolute;
 }
