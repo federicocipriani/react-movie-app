@@ -11,6 +11,8 @@ function Movies({ movies }) {
 
     const poster = 'movie-poster';
     const poster_active = 'movie-poster active';
+    const button = 'button';
+    const button_active = 'button active';
     const content = 'card-content';
     const content_active = 'card-content active';
 
@@ -19,7 +21,9 @@ function Movies({ movies }) {
             {movies.map((movie, index) => (
                 <div className='card-container' key={movie.id}>
                     <button
-                        className='button'
+                        className={
+                            expandedId === index ? button_active : button
+                        }
                         onClick={() => handleClick(index)}></button>
                     <img
                         className={
@@ -33,10 +37,29 @@ function Movies({ movies }) {
                             expandedId === index ? content_active : content
                         }>
                         <h2 className='movie-title'>{movie.title}</h2>
-                        <p className='movie-release'>
-                            Release date: {movie.release_date}
-                        </p>
-                        <p className='movie-overview'>{movie.overview}</p>
+                        <div className='movie-release'>
+                            <p>
+                                <small>RELEASE DATE</small>
+                            </p>
+                            <p>{movie.release_date}</p>
+                        </div>
+                        <div className='movie-overview'>
+                            <p>
+                                <small>QUICK OVERVIEW</small>
+                            </p>
+                            <p>{movie.overview}</p>
+                        </div>
+                    </div>
+                    <div className='movie-rating-container'>
+                        <div className='movie-rating'>
+                            <div className='rating-background'></div>
+                            <div className='movie-vote-wrapper'>
+                                <span className='movie-vote'>
+                                    {movie.vote_average}
+                                </span>
+                                /10
+                            </div>
+                        </div>
                     </div>
                 </div>
             ))}
