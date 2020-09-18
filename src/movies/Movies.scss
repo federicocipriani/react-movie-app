@@ -56,7 +56,8 @@
         ~ .movie-poster-container
         > .movie-rating-container
         > .movie-rating
-        > .movie-vote-wrapper {
+        > .movie-vote-wrapper
+        > .movie-vote {
         transition: font-size 0.5s ease-in-out 0s;
         font-size: 2rem;
     }
@@ -65,7 +66,9 @@
         > .movie-rating-container
         > .movie-rating
         > .movie-vote-wrapper
-        .movie-vote {
+        > .movie-vote
+        > p
+        > .movie-vote-rating {
         transition: font-size 0.5s ease-in-out 0s;
         font-size: 3.5rem;
     }
@@ -143,13 +146,12 @@
 
         height: 100%;
         width: 100%;
-        // right: 1rem;
-        // bottom: 0.5rem;
         padding: 0 1rem 0.5rem;
         transition: font-size 0.5s ease-in-out 0s;
 
         & .rating-footer {
             position: absolute;
+            opacity: 0.7;
         }
 
         & .movie-vote {
@@ -158,6 +160,7 @@
             transition: font-size 0.5s ease-in-out 0s;
 
             & .movie-vote-rating {
+                transition: font-size 0.5s ease-in-out 0s;
                 font-size: 3rem;
             }
         }
