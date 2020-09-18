@@ -10,18 +10,26 @@
     display: flex;
 }
 
-.movie-poster {
-    border-radius: 10px;
-    width: 100%;
+.movie-poster-container {
+    display: flex;
+    // width: 100%;
     z-index: 1;
-    opacity: 1;
-    transition: z-index 0s linear 1s, border-radius 0s linear 1s;
+    transition: z-index 0s linear 1s;
+    // border-radius: 10px;
 
+    & .movie-poster {
+        width: 100%;
+        border-radius: 10px;
+        transition: border-radius 0s linear 1s;
+        &.active {
+            transition: border-radius 0s linear 0s;
+            border-radius: 10px 0 0 10px;
+        }
+    }
     &.active {
-        transition: z-index 0s linear 0s, border-radius 0s linear 0s;
-        opacity: 1;
+        transition: z-index 0s linear 0s;
         z-index: 4;
-        border-radius: 10px 0 0 10px;
+        // border-radius: 10px 0 0 10px;
     }
 }
 
@@ -35,6 +43,31 @@
     left: 0;
     opacity: 0;
     z-index: 2;
+
+    &:hover
+        ~ .movie-poster-container
+        > .movie-rating-container
+        > .movie-rating
+        > .rating-background {
+        transition: transform 0.5s ease-in-out 0s;
+        transform: translate(0, -10px) rotate(-15deg);
+    }
+    &:hover
+        ~ .movie-poster-container
+        > .movie-rating-container
+        > .movie-rating
+        > .movie-vote-wrapper {
+            transition: font-size 0.5s ease-in-out 0s;
+        font-size: 2rem;
+    }
+    &:hover
+        ~ .movie-poster-container
+        > .movie-rating-container
+        > .movie-rating
+        > .movie-vote-wrapper .movie-vote {
+            transition: font-size 0.5s ease-in-out 0s;
+        font-size: 3.5rem;
+    }
 
     &.active {
         z-index: 5;
@@ -80,12 +113,18 @@
     position: absolute;
     display: flex;
     align-items: flex-end;
-    font-size: 1.75rem;
     z-index: 1;
     width: 100%;
     height: 100%;
     color: #fff;
     overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    transition: border-radius 0s linear 1s;
+
+    &.active {
+        transition: border-radius 0s linear 0s;
+        border-radius: 0 0 0 10px;
+    }
 
     & .movie-rating {
         position: relative;
@@ -98,13 +137,17 @@
         position: absolute;
         right: 1rem;
         bottom: 0.5rem;
+        font-size: 1.75rem;
+        transition: font-size 0.5s ease-in-out 0s;
     }
 
     & .movie-vote {
         font-size: 3rem;
+        transition: font-size 0.5s ease-in-out 0s;
     }
 
     & .rating-background {
+        transition: transform 0.5s ease-in-out 0s;
         position: absolute;
         background-color: black;
         opacity: 0.5;
