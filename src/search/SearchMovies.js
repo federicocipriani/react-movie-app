@@ -10,7 +10,6 @@ function SearchMovies({ handleChange, query }) {
                     type='text'
                     name='query'
                     value={query}
-                    // placeholder='Movie name'
                     onChange={handleChange}
                     autoComplete='off'
                     required

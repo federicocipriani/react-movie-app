@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 .input {
-    background-color: rgba($secondary-color, 1);
+    background-color: rgba($secondary-color, 0.6);
     color: #fff;
     position: relative;
     border-radius: 5px;
@@ -9,7 +9,6 @@
     height: 2.5rem;
     cursor: text;
     transition: all 0.5s ease-in-out;
-    // overflow: hidden;
     &:hover {
         width: 15rem;
     }
@@ -37,11 +36,15 @@
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($secondary-color, 1);
+    background-color: rgba($secondary-color, 0.6);
     border: none;
     outline: none;
     // transform: translateX(100%);
-    transition: caret-color 0.15s ease-in, opacity 0.75s linear;
+    transition: caret-color 0.15s ease-in, opacity 0.75s linear,
+        background-color 0.2s ease-in-out;
+    &:hover {
+        background-color: rgba($secondary-color, 1);
+    }
     &:hover + .search-icon {
         transform: translateX(-40%);
         // left: 2rem;

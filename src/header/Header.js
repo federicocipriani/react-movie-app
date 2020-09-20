@@ -4,14 +4,14 @@ import headerStyles from './Header.module.scss';
 
 function Header({ query, handleChange, searchMovies }) {
     return (
-        <div className={headerStyles.header}>
-            <h1>What Should I Watch?</h1>
+        <header className={headerStyles.header}>
+            <h1 className={headerStyles.title}>What Should I Watch?</h1>
             <SearchMovies
                 query={query}
                 handleChange={handleChange}
                 searchMovies={searchMovies}
             />
-        </div>
+        </header>
     );
 }
 

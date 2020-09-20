@@ -8,6 +8,8 @@ function Movies({ movies }) {
     const poster_active = 'movie-poster-container active';
     const poster_pic = 'movie-poster';
     const poster_pic_active = 'movie-poster active';
+    const poster_ph_pic = 'movie-poster-ph';
+    const poster_ph_pic_active = 'movie-poster-ph active';
     const ratings = 'movie-rating-container';
     const ratings_active = 'movie-rating-container active';
     const button = 'button';
@@ -19,6 +21,47 @@ function Movies({ movies }) {
         console.log(index);
         setExpandedId(expandedId === index ? -1 : index);
     };
+
+    const movieRating = movies.map((movie) => {
+        if (movie.vote_average > 0) {
+            return (
+                <p>
+                    <span className='movie-vote-rating'>
+                        {movie.vote_average}
+                    </span>
+                    /10
+                </p>
+            );
+        } else {
+            return <p className='movie-no-vote'>No votes yet</p>;
+        }
+    });
+
+    const moviePoster = movies.map((movie, index) => {
+        if (movie.poster_path === null) {
+            return (
+                <div
+                    className={
+                        expandedId === index
+                            ? poster_ph_pic_active
+                            : poster_ph_pic
+                    }>
+                    <h2>{movie.title}</h2>
+                    <p>Poster not available</p>
+                </div>
+            );
+        } else {
+            return (
+                <img
+                    className={
+                        expandedId === index ? poster_pic_active : poster_pic
+                    }
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt=''
+                />
+            );
+        }
+    });
 
     return (
         <div className='card-list'>
@@ -33,15 +76,7 @@ function Movies({ movies }) {
                         className={
                             expandedId === index ? poster_active : poster
                         }>
-                        <img
-                            className={
-                                expandedId === index
-                                    ? poster_pic_active
-                                    : poster_pic
-                            }
-                            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                            alt=''
-                        />
+                        {moviePoster[index]}
                         <div
                             className={
                                 expandedId === index ? ratings_active : ratings
@@ -50,12 +85,7 @@ function Movies({ movies }) {
                                 <div className='rating-background'></div>
                                 <div className='movie-vote-wrapper'>
                                     <div className='movie-vote'>
-                                        <p>
-                                            <span className='movie-vote-rating'>
-                                                {movie.vote_average}
-                                            </span>
-                                            /10
-                                        </p>
+                                        {movieRating[index]}
                                     </div>
                                     <div className='rating-footer'>
                                         <small>RATING</small>
@@ -69,14 +99,14 @@ function Movies({ movies }) {
                             expandedId === index ? content_active : content
                         }>
                         <h2 className='movie-title'>{movie.title}</h2>
-                        <div className='movie-release'>
-                            <p>
+                        <div className='movie-release-container'>
+                            <p className="movie-release">
                                 <small>RELEASE DATE</small>
                             </p>
                             <p>{movie.release_date}</p>
                         </div>
-                        <div className='movie-overview'>
-                            <p>
+                        <div className='movie-overview-container'>
+                            <p className="movie-overview">
                                 <small>QUICK OVERVIEW</small>
                             </p>
                             <p>{movie.overview}</p>
