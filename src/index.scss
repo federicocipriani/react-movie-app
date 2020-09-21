@@ -22,3 +22,9 @@ body {
 .page-content {
     width: 100%;
 }
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        width: 55vw;
+    }
+}

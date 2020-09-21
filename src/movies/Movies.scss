@@ -220,3 +220,44 @@
 .rating-header {
     position: absolute;
 }
+
+@media only screen and (max-width: 1024px) {
+    .card-content {
+        font-size: 0.75rem;
+        padding: 1rem;
+        &.active {
+            width: 120%;
+        }
+    }
+    .movie-rating-container {
+        & .movie-vote-wrapper {
+            & .movie-vote {
+                font-size: 1.5rem;
+                & .movie-vote-rating {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+    .button {
+        &:hover
+            ~ .movie-poster-container
+            > .movie-rating-container
+            > .movie-rating
+            > .movie-vote-wrapper
+            > .movie-vote {
+            font-size: 1.75rem;
+        }
+        &:hover
+            ~ .movie-poster-container
+            > .movie-rating-container
+            > .movie-rating
+            > .movie-vote-wrapper
+            > .movie-vote
+            > p
+            > .movie-vote-rating {
+            transition: font-size 0.5s ease-in-out 0s;
+            font-size: 3rem;
+        }
+    }
+}
