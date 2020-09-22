@@ -70,3 +70,15 @@
 .icon {
     transition: all 0.5s ease-out;
 }
+
+@media only screen and (max-width: 768px) {
+    .input {
+        width: 8rem;
+        &:hover {
+            width: 10rem;
+        }
+    }
+    .input-box {
+        padding-left: 2.5rem;
+    }
+}

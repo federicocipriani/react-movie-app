@@ -20,6 +20,8 @@
     // border-radius: 10px;
 
     & .movie-poster {
+        opacity: 0.5;
+        // opacity: 1;
         width: 100%;
         border-radius: 10px;
         transition: border-radius 0s linear 1s;
@@ -99,15 +101,18 @@
 .card-content {
     background-color: #fff;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     margin-left: 0;
-    padding: 1rem 2rem;
+    // padding: 1rem 2rem;
+    padding: 0 1rem 1rem;
+    border: white 1rem solid;
     width: 100%;
     height: 100%;
     border-radius: 10px;
     z-index: -1;
-    opacity: 0;
+    // opacity: 0;
+    opacity: 1;
     overflow-y: scroll;
 
     transition: margin-left 1s ease-in-out, z-index 0s linear 1s,
@@ -258,6 +263,72 @@
             > .movie-vote-rating {
             transition: font-size 0.5s ease-in-out 0s;
             font-size: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .movie-rating-container {
+        & .movie-vote-wrapper {
+            & .movie-vote {
+                font-size: 1.25rem;
+                & .movie-vote-rating {
+                    font-size: 2.25rem;
+                }
+            }
+        }
+    }
+    .button {
+        &:hover
+            ~ .movie-poster-container
+            > .movie-rating-container
+            > .movie-rating
+            > .movie-vote-wrapper
+            > .movie-vote {
+            font-size: 1.5rem;
+        }
+        &:hover
+            ~ .movie-poster-container
+            > .movie-rating-container
+            > .movie-rating
+            > .movie-vote-wrapper
+            > .movie-vote
+            > p
+            > .movie-vote-rating {
+            transition: font-size 0.5s ease-in-out 0s;
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card-list {
+        grid-template-columns: 1fr;
+    }
+    .movie-poster-container {
+        & .movie-poster {
+            &.active {
+                border-radius: 10px 10px 0 0;
+            }
+        }
+    }
+    .card-content {
+        bottom: 0;
+        height: 50%;
+        overflow-y: scroll;
+        padding: 0.5rem 1rem 1rem 0;
+        transition: bottom 1s ease-in-out, z-index 0s linear 1s,
+            opacity 0s linear 1s, border-radius 0s linear 0.5s,
+            width 1s ease-in-out 0s;
+
+        &.active {
+            transition: bottom 1s ease-in-out 0s, z-index 0s linear 0s,
+                opacity 0s linear 0s, border-radius 0s linear 0.5s,
+                width 1s ease-in-out 0s;
+            margin-left: 0;
+            bottom: -50%;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
         }
     }
 }
