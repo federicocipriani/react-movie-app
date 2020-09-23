@@ -15,6 +15,7 @@
 .movie-poster-container {
     display: flex;
     width: 100%;
+    height: auto;
     z-index: 1;
     transition: z-index 0s linear 1s;
 
