@@ -2,11 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // height: 5rem;
     margin: 1.5rem 0 2.5rem;
 }
 
-.title {
+.header_title {
     position: relative;
     &::before {
         position: absolute;
@@ -18,7 +17,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .title {
+    .header_title {
         font-size: 1.5rem;
     }
 }
@@ -27,7 +26,7 @@
     .header {
         flex-direction: column;
     }
-    .title {
+    .header_title {
         font-size: 2rem;
         margin-bottom: 2rem;
     }

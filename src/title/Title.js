@@ -1,26 +1,18 @@
 import React from 'react';
-import titleStyles from './Title.module.scss';
+import './Title.scss';
 
 function Title({ query }) {
-    const styles = {
-        marginBottom: '1rem',
-    };
-
     const titles = (query) => {
         if (query === '') {
-            return <h2 className={titleStyles.title}>Popular movies</h2>;
+            return <h2 className='title'>Popular movies</h2>;
         } else {
-            return (
-                <h2 className={titleStyles.title}>
-                    Search results for "{query}"
-                </h2>
-            );
+            return <h2 className='title'>Search results for "{query}"</h2>;
         }
     };
 
     const title = titles(query);
 
-    return <div className={titleStyles.title_container}>{title}</div>;
+    return <div className='title_container'>{title}</div>;
 }
 
 export default Title;

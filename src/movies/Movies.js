@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Movies.scss';
 
 function Movies({ movies }) {
@@ -18,7 +18,6 @@ function Movies({ movies }) {
     const content_active = 'card-content active';
 
     const handleClick = (index) => {
-        console.log(index);
         setExpandedId(expandedId === index ? -1 : index);
     };
 
@@ -57,7 +56,7 @@ function Movies({ movies }) {
                         expandedId === index ? poster_pic_active : poster_pic
                     }
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt=''
+                    alt={`poster_${movie.title}`}
                 />
             );
         }
@@ -100,13 +99,13 @@ function Movies({ movies }) {
                         }>
                         <h2 className='movie-title'>{movie.title}</h2>
                         <div className='movie-release-container'>
-                            <p className="movie-release">
+                            <p className='movie-release'>
                                 <small>RELEASE DATE</small>
                             </p>
                             <p>{movie.release_date}</p>
                         </div>
                         <div className='movie-overview-container'>
-                            <p className="movie-overview">
+                            <p className='movie-overview'>
                                 <small>QUICK OVERVIEW</small>
                             </p>
                             <p>{movie.overview}</p>

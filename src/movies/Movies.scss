@@ -17,7 +17,6 @@
     width: 100%;
     z-index: 1;
     transition: z-index 0s linear 1s;
-    // border-radius: 10px;
 
     & .movie-poster {
         opacity: 1;
@@ -49,7 +48,6 @@
     &.active {
         transition: z-index 0s linear 0s;
         z-index: 4;
-        // border-radius: 10px 0 0 10px;
     }
 }
 
@@ -103,7 +101,6 @@
     bottom: 0;
     left: 0;
     margin-left: 0;
-    // padding: 1rem 2rem;
     padding: 0 1rem 1rem;
     border: white 1rem solid;
     width: 100%;
@@ -111,7 +108,6 @@
     border-radius: 10px;
     z-index: -1;
     opacity: 0;
-    // opacity: 1;
     overflow-y: scroll;
 
     transition: margin-left 1s ease-in-out, z-index 0s linear 1s,
@@ -132,7 +128,6 @@
 
 .movie-overview-container,
 .movie-release-container {
-    // position: relative;
     padding-top: 0.5rem;
 }
 
@@ -144,7 +139,6 @@
         content: '';
         position: absolute;
         bottom: 0.1rem;
-        // top: 1.5rem;
         background-color: $tertiary-color;
         opacity: 0.4;
         height: 0.5rem;

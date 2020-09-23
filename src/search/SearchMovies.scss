@@ -39,7 +39,6 @@
     background-color: rgba($secondary-color, 0.6);
     border: none;
     outline: none;
-    // transform: translateX(100%);
     transition: caret-color 0.15s ease-in, opacity 0.75s linear,
         background-color 0.2s ease-in-out;
     &:hover {
@@ -47,11 +46,9 @@
     }
     &:hover + .search-icon {
         transform: translateX(-40%);
-        // left: 2rem;
     }
     &:valid + .search-icon {
         transform: translateX(-40%);
-        // left: 2rem;
     }
 }
 
